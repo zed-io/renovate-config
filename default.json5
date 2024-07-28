@@ -1,7 +1,7 @@
-// default renovate config options for Valora repos
+// default renovate config options for Zed repos
 // for configs that are easy/possible to override (e.g. `mergeable` is false), use base.json5 instead. see README for details
 {
-  extends: ['github>valora-inc/renovate-config:base.json5'],
+  extends: ['github>zed-io/renovate-config:base.json5'],
 
   // Dedupe dependencies
   postUpdateOptions: ['yarnDedupeFewer'],

@@ -41,14 +41,6 @@
   // in the sense that rules declared later (towards the end of the array)
   // overwrite values of an also-matching rule declared earlier.
   packageRules: [
-    // For now don't automerge major or minor updates for these network libraries,
-    // since one of them broke recently, see https://github.com/axios/axios/issues/5296
-    {
-      matchUpdateTypes: ['major', 'minor'],
-      automerge: false,
-      matchPackageNames: ['axios', 'node-fetch'],
-    },
-
     // Leave peerDependencies and engines alone
     {
       matchDepTypes: ['peerDependencies', 'engines'],
@@ -94,39 +86,5 @@
       matchPackagePatterns: ['^typescript'],
       groupName: 'typescript packages',
     },
-
-    // Group updates for @testing-library packages
-    {
-      matchPackagePatterns: ['^@testing-library/'],
-      groupName: 'testing-library packages',
-    },
-
-    // Group updates for @segment packages
-    {
-      matchPackagePatterns: ['^@segment/'],
-      groupName: 'segment packages',
-    },
-
-    // Group updates for @celo packages
-    {
-      matchPackagePatterns: ['^@celo/'],
-      groupName: 'celo packages',
-    },
-
-    // Group updates for @fiatconnect packages
-    {
-      matchPackagePatterns: ['^@fiatconnect/'],
-      groupName: 'fiatconnect packages',
-      // No risk of unpublishing and these are typically pulled in immediately
-      stabilityDays: 0,
-    },
-
-    // Disable stability days for some packages, where we don't expect unpublishing
-    // so they are pulled in immediately
-    {
-      matchPackagePatterns: ['^@valora/'],
-      matchPackageNames: ['renovate'],
-      stabilityDays: 0,
-    },
-  ],
+  ]
 }
